@@ -59,7 +59,7 @@ const itemClickButton = async (dataId) => {
     passingData.forEach((cardData) => {
         // console.log(cardData)
         const createDiv = document.createElement('div');
-        createDiv.classList = 'card w-96 bg-base-100 ';
+        createDiv.classList = 'card  bg-base-100 ';
         createDiv.innerHTML = `
         
         <figure><img src="${cardData.thumbnail}" alt="Shoes" /></figure>
