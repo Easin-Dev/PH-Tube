@@ -17,7 +17,7 @@ const lodeData = async () => {
         categoryDiv.classList = 'join mt-8 rounded-md'
         categoryDiv.innerHTML = `
         
-            <button id = "red" onclick = "itemClickButton('${data.category_id}'); color()" class="btn mr-5">${data.category}</button>
+            <button id = "red" onclick = "itemClickButton('${data.category_id}')" class="btn mr-5">${data.category}</button>
 
         `
         CategoryButton.appendChild(categoryDiv);
@@ -33,7 +33,7 @@ const itemClickButton = async (dataId) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${dataId}`);
     const data = await res.json();
     const passingData = data.data;
-    // console.log(passingData)
+    console.log(passingData)
 
     
 
@@ -53,7 +53,7 @@ const itemClickButton = async (dataId) => {
     const cardAppendDiv = document.getElementById('cardContainer');
     cardAppendDiv.textContent = '';
     passingData.forEach((cardData) => {
-        // console.log(cardData)
+        console.log(cardData)
         const createDiv = document.createElement('div');
         createDiv.classList = 'card  bg-base-100 ';
         createDiv.innerHTML = `
@@ -71,8 +71,9 @@ const itemClickButton = async (dataId) => {
 
                         <div class="ml-2 inline-block">
                             <h1 class="text-2xl font-bold mb-4">${cardData.title}</h1>
-                            <div>
+                            <div class = "flex"
                                 <h2 class="mb-2">Awlad Hossain</h2>
+                                <span>${cardData.authors[0].verified? '<img class="ml-3 w-7" src="js/verified-vector-icon-account-verification-verification-icon_564974-1246-removebg-preview.png" alt="">' : ' '}</span>
                             </div>
                             <h2>${cardData.others.views} views</h2>
                         </div>
