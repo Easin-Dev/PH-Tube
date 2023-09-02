@@ -28,7 +28,6 @@ const lodeData = async () => {
 
 
 
-
 const itemClickButton = async (dataId) => {
     
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${dataId}`);
@@ -36,10 +35,7 @@ const itemClickButton = async (dataId) => {
     const passingData = data.data;
     // console.log(passingData)
 
-     
-
-    // const red = document.getElementById('color');
-    //     console.log(red.classList.add('bg-red-600'))
+    
 
 
     const noDataFound = document.getElementById('noDataFound');
@@ -88,5 +84,9 @@ const itemClickButton = async (dataId) => {
         cardAppendDiv.appendChild(createDiv);
     });
 }
-// itemClickButton("1000")
+
+const BlogButton = () => {
+    window.location.href = 'index2.html';
+}
+itemClickButton("1000")
 lodeData()
