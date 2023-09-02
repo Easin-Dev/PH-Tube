@@ -33,9 +33,7 @@ const itemClickButton = async (dataId) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${dataId}`);
     const data = await res.json();
     const passingData = data.data;
-    console.log(passingData)
-
-    
+    // console.log(passingData)
 
 
     const noDataFound = document.getElementById('noDataFound');
@@ -58,7 +56,13 @@ const itemClickButton = async (dataId) => {
         createDiv.classList = 'card  bg-base-100 ';
         createDiv.innerHTML = `
         
-        <figure><img src="${cardData.thumbnail}" alt="Shoes" /></figure>
+        <div>
+            <img class ="w-96 rounded-lg" src="${cardData.thumbnail}" alt="Shoes" />
+            <div class = "absolute  bottom-44 right-0 mb-2 mr-2">
+            ${cardData.others.posted_date?'<P class="bg-slate-900 p-1 rounded-lg text-white"> <span id="hrs"> 00</span>hrs <span id="min">00</span>min ago</P>' : ''}
+            </div>
+        </div>
+
         <div class="card-body">
             <div class="card-actions items-center justify-between">
                 
@@ -89,5 +93,13 @@ const itemClickButton = async (dataId) => {
 const BlogButton = () => {
     window.location.href = 'index2.html';
 }
+
+const reload = () => {
+    lodeData.reload()
+}
+
+
+
+
 itemClickButton("1000")
 lodeData()
