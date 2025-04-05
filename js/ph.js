@@ -27,7 +27,6 @@ const lodeData = async () => {
 }
 
 
-
 const itemClickButton = async (dataId) => {
     
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${dataId}`);
@@ -51,7 +50,7 @@ const itemClickButton = async (dataId) => {
     const cardAppendDiv = document.getElementById('cardContainer');
     cardAppendDiv.textContent = '';
     passingData.forEach((cardData) => {
-        console.log(cardData)
+        // console.log(cardData)
         const createDiv = document.createElement('div');
         createDiv.classList = 'card  bg-base-100 ';
         createDiv.innerHTML = `
@@ -59,7 +58,7 @@ const itemClickButton = async (dataId) => {
         <div>
             <img class ="w-96 rounded-lg" src="${cardData.thumbnail}" alt="Shoes" />
             <div class = "absolute  bottom-44 right-0 mb-2 mr-2">
-            ${cardData.others.posted_date?'<P class="bg-slate-900 p-1 rounded-lg text-white"> <span id="hrs"> 00</span>hrs <span id="min">00</span>min ago</P>' : ''}
+            ${cardData.others.posted_date?'<P class="bg-slate-900 p-1 rounded-lg text-white"> <span id="hrs">00</span>hrs <span id="min">00</span>min ago</P>' : ''}
             </div>
         </div>
 
@@ -88,6 +87,7 @@ const itemClickButton = async (dataId) => {
         `
         cardAppendDiv.appendChild(createDiv);
     });
+    
 }
 
 const BlogButton = () => {
